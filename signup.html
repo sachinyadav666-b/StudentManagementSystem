@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* height: 100vh; */
+            background-image: url(https://img.freepik.com/free-vector/geometric-gradient-futuristic-background_23-2149116406.jpg?semt=ais_hybrid);
+            background-size: cover;
+        }
+
+        .registration-container {
+
+            background-color: rgba(4, 3, 2, 0.663);
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .registration-container h1 {
+            text-align: center;
+            margin-bottom: -1px;
+            color: white;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        #country,
+        #state,
+        #city {
+            width: 95%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            margin-top: 1rem;
+        }
+
+        .form-group #country,
+        #state,
+        #city {
+            width: 99%;
+        }
+
+        .form-group input:hover {
+            /* outline: none; */
+            border-color: #007bff;
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+        }
+
+        .submit-button {
+            margin-top: 1rem;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-button:hover {
+            background-color: #0056b3;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 1.5rem;
+            font-size: 14px;
+            color: #777;
+        }
+
+        .footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+
+        input[type="number"] {
+            -moz-appearance: textfield;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="registration-container">
+        <h1>STUDENT SIGN-UP</h1>
+        <form action="/signup" method="POST" onsubmit="return validateForm()">
+            <div class="form-group">
+                <input type="text" id="name" name="fullname" placeholder="Enter your full name" required>
+            </div>
+            <div class="form-group">
+                <input type="number" id="Mobile-No" name="Mno" placeholder="Enter Mobile-No" required maxlength="10">
+                <input type="Email" id="Email" name="Email" placeholder="Enter Email" required>
+            </div>
+            <div class="form-group">
+                <input type="text" id="Rum-No" name="Rno" placeholder="Enter Rum-No" required>
+                <input type="Text" id="father" name="Fathern" placeholder="Enter Father-name" required>
+                <input type="Text" name="mothern" placeholder="Enter mother-name" required>
+                <input type="text" id="erno" name="erno" placeholder="Enter enrollment-no" required>
+                <input type="text" id="dob" placeholder="Select DOB" name="dob"
+                    onfocus="(this.type='date'); this.placeholder=''"
+                    onblur="if(!this.value) { this.type='text'; this.placeholder='Select DOB'; }" required>
+                <select class="form-select country" aria-label="Default select example" id="country" name="category"
+                    required>
+                    <option selected>Select your Country</option>
+                </select>
+                <select class="form-select state" aria-label="Default select example" id="state" name="address"
+                    required>
+                    <option selected>Select your State</option>
+                </select>
+                <select class="form-select city" aria-label="Default select example" id="city" name="admitdate">
+                    <option selected>Select your City</option>
+                </select>
+                <input type="Text" id="courseyr" name="courseyr" placeholder="Enter Course & Year" required>
+                <input type="Text" id="board" name="board" placeholder="Enter Highschoool & Inter Boardname" required>
+            </div>
+            <div class="form-group">
+                <input type="password" id="password" name="password" placeholder="Create a password"
+                    pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$"
+                    title="Password must be at least 8 characters long and contain at least one letter,special character (@,$,%,!,*,&,%) and number."
+                    required>
+            </div>
+            <div class="form-group">
+                <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password"
+                    required>
+            </div>
+            <button type="submit" class="submit-button">Register</button>
+        </form>
+        <div class="footer">
+            Already have an account? <a href="/">Log-in</a>
+        </div>
+    </div>
+
+    <script>
+        function validateForm() {
+            // Full name validation
+            const fullname = document.getElementById("name").value.trim();
+            const nameRegex = /^[a-zA-Z\s]+$/;
+
+            if (!nameRegex.test(fullname)) {
+                alert("Full name should only contain letters and spaces, and no numbers or special characters.");
+                return false;
+            }
+            document.getElementById("name").value = fullname;
+
+            // Mobile number validation
+            const mobileNo = document.getElementById("Mobile-No").value.trim();
+            const mobileRegex = /^[1-9][0-9]{9}$/; // Ensures the first digit is not 0 and total length is 10
+
+            if (!mobileRegex.test(mobileNo)) {
+                alert("Mobile number must be exactly 10 digits and cannot start with 0.");
+                return false;
+            }
+
+            // Rum number (Rno) validation
+            const rumNo = document.getElementById("Rum-No").value.trim();
+            const rumRegex = /^Rum\d{7}$/; // Starts with "Rum", followed by 3 digits, then 7 digits
+
+            if (!rumRegex.test(rumNo)) {
+                alert("Rum number must be in the format 'RumXXXXXX' where XXX are 3 digits and YYYYYYY are 7 digits.");
+                return false;
+            }
+
+            // Enrollment number (erno) validation
+            const erno = document.getElementById("erno").value.trim();
+            const ernoRegex = /^Ru\d{7}$/; // Starts with "Ru", followed by 3 digits, then 7 digits
+
+            if (!ernoRegex.test(erno)) {
+                alert("Enrollment number must be in the format 'RuXXXXXX' where XXX are 3 digits and YYYYYYY are 7 digits.");
+                return false;
+            }
+
+            return true; // Form validation successful
+        }
+
+        // Fetch and populate country options when the page loads
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('http://localhost:4000/getCountries') // Fetch country data 
+                .then(response => response.json())
+                .then(countries => {
+                    let countrySelect = document.getElementById('country');
+                    countries.forEach(country => {
+                        let option = document.createElement('option');
+                        option.value = country.id;
+                        option.text = country.countryNames;
+                        countrySelect.add(option);
+                    });
+                });
+        });
+
+        // Event listener for country change
+        document.getElementById('country').addEventListener('change', function () {
+            const countryId = this.value;
+            
+            let stateSelect = document.getElementById('state');
+            let citySelect = document.getElementById('city');
+
+            if (countryId) {
+                // Fetch states based on countryId
+                fetch(`/getStates?countryId=${countryId}`)
+                    .then(response => response.json())
+                    .then(states => {
+                        states.forEach(state => {
+                            let option = document.createElement('option');
+                            option.value = state.id;
+                            option.text = state.stateNames;
+                            stateSelect.add(option);
+                        });
+                    });
+            }
+        });
+
+        // Event listener for state change
+        document.getElementById('state').addEventListener('change', function () {
+            const stateId = this.value;
+
+            let citySelect = document.getElementById('city');
+
+            if (stateId) {
+                // Fetch cities based on stateId
+                fetch(`/getCities?stateId=${stateId}`)
+                    .then(response => response.json())
+                    .then(cities => {
+                        cities.forEach(city => {
+                            let option = document.createElement('option');
+                            option.value = city.id;
+                            option.text = city.cityNames;
+                            citySelect.add(option);
+                        });
+                    });
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>

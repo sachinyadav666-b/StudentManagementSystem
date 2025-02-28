@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Page</title>
+
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    </head>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            width: 100vw;
+            /* height: 100vh; */
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: #333;
+        }
+
+        #dashboard {
+            width: 100vw;
+        }
+
+        .navbar {
+            width: 100%;
+            background-color: #11191d;
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar .rama {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .navbar .rama-img {
+            height: 3rem;
+            width: 3rem;
+            background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBtSyMMUthnfga3EpN0SGsWffnugjduI226Q&s);
+            background-size: cover;
+            border-radius: 50%;
+        }
+
+        .navbar button {
+            background-color: rgb(210, 27, 27);
+            /* border: none; */
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            /* font-size: 16px; */
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .navbar button:hover {
+            background-color: #b92f2c;
+            transform: scale(1.1);
+        }
+
+        #edit-profile-btn {
+            background: #00b312;
+        }
+
+        .navbar .navbtn {
+            /* background: #00b312; */
+            display: flex;
+            gap: 1.5rem;
+
+        }
+
+        .navbtn {}
+
+
+        .separation {
+            position: relative;
+            height: 8px;
+            width: 100%;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+        }
+
+        .img-content {
+            width: 100%;
+            padding: 5rem 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            background-color: #f4f4f4;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .imgupld {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .img-content h2 {
+            font-size: 2rem;
+            color: #11191d;
+        }
+
+        .img {
+            height: 150px;
+            width: 150px;
+            background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSLU5_eUUGBfxfxRd4IquPiEwLbt4E_6RYMw&s);
+            background-size: cover;
+            border: 5px solid rgb(40, 37, 37);
+            border-radius: 50%;
+            /* Applying border shadow */
+
+            border: 3px solid #007bff;
+            /* Border color and width */
+            box-shadow: 0px 10px px rgba(0, 0, 0, 0.1),
+                /* Soft shadow */
+                0px 1px 3px rgba(0, 0, 0, 0.06);
+            /* Secondary shadow */
+
+
+
+        }
+
+        .imgupld button {
+            background-color: #00b312;
+            color: white;
+            padding: 10px 20px;
+            /* border: none; */
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .imgupld button:hover {
+            background-color: #00b312;
+            transform: scale(1.1);
+        }
+
+        .dashboard {
+            width: 100%;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+        }
+
+        .header {
+            background-color: #11191d;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 1.8rem;
+        }
+
+        .content {
+            padding: 1rem;
+        }
+
+        .button {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .button button {
+            background-color: #00b312;
+            color: white;
+            padding: 10px 20px;
+            /* border: none; */
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .button button:hover {
+            background-color: #00b312;
+            transform: scale(1.1);
+        }
+
+        .academic-details {
+            display: none;
+            background-color: #e8f5e9;
+            border: 1px solid #c8e6c9;
+            border-radius: 8px;
+            padding: 1rem;
+            color: #2e7d32;
+        }
+
+        .academic-details h3 {
+            margin-bottom: 1rem;
+        }
+
+        .academic-details .minidetailbox {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1rem;
+            font-size: 1rem;
+        }
+
+        .academic-details .minidetailbox strong {
+            color: #333;
+        }
+
+        .academic-details .minidetailbox p {
+            color: #555;
+        }
+
+        .menu-container {
+            position: relative;
+
+        }
+
+
+        .menu-icon,
+        #close-btn {
+            font-size: 25px;
+            cursor: pointer;
+            padding: 5px;
+            background: #00b312;
+            border-radius: 10px;
+        }
+
+
+        .menu {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: -5rem;
+            background-color: #333;
+            /* width: 100%; */
+            /* height: 100vh; */
+            z-index: 1000;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .menu .menuoption {
+            position: relative;
+            top: 4rem;
+        }
+
+        .menu a {
+            display: block;
+            padding: 20px;
+            text-decoration: none;
+            color: white;
+            /* font-size: 24px; */
+            border-bottom: 1px solid #444;
+        }
+
+        .menu a:hover {
+            background-color: #444;
+        }
+
+        /* The close icon */
+        .close-btn {
+            position: relative;
+            top: 8px;
+            right: -2rem;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .footer {
+            height: 10vh;
+        }
+
+        .hidden {
+            display: none;
+            position: absolute;
+        }
+
+
+        /* General Styles */
+        #edit-section {
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: #2080a6;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #edit-section h3 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #0c0a0a;
+            margin-bottom: 1.5rem;
+        }
+
+        form h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #090808;
+        }
+
+        form label {
+            display: block;
+            font-size: 1rem;
+            margin: 0.5rem 0;
+        }
+
+        form input,
+        form select {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        form button {
+            padding: 0.75rem 1.5rem;
+            background-color: #1fbe24;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-right: 1rem;
+        }
+
+        form button[type="button"] {
+            background-color: #d2180a;
+        }
+
+        form button:hover {
+            opacity: 0.9;
+        }
+
+        form .hidden {
+            display: none;
+        }
+
+        #cancel-edit {
+            background-color: #dd180a;
+            color: white;
+            border-radius: 5px;
+        }
+
+        form input[type="text"]:focus,
+        form input[type="email"]:focus,
+        form select:focus {
+            border-color: #090a09;
+            outline: none;
+        }
+
+        @media screen and (max-width: 700px) {
+
+            /* Mobile Styles */
+            #edit-section {
+                padding: 1.5rem;
+            }
+
+            #edit-section h3 {
+                font-size: 1.2rem;
+                margin-bottom: 1rem;
+            }
+
+            form h4 {
+                font-size: 1rem;
+            }
+
+            form input,
+            form select {
+                font-size: 0.9rem;
+                padding: 0.5rem;
+            }
+
+            form button {
+                font-size: 0.9rem;
+                padding: 0.5rem 1rem;
+            }
+
+            form button[type="button"] {
+                font-size: 0.9rem;
+                padding: 0.5rem 1rem;
+            }
+
+            form label {
+                font-size: 0.9rem;
+            }
+
+            /* Adjust button widths */
+            form button {
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+        }
+
+        /* Desktop Styles */
+        @media screen and (min-width: 701px) {
+
+            /* Desktop Styles */
+            #edit-section {
+                width: 60%;
+            }
+
+            form input,
+            form select {
+                font-size: 1rem;
+            }
+
+            form button {
+                width: auto;
+                margin-right: 1rem;
+            }
+
+            #cancel-edit {
+                width: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="dashboard">
+        <div class="navbar">
+            <div class="rama">
+                <div class="rama-img"></div>
+                <span>Rama University</span>
+            </div>
+            <div class="navbtn">
+
+
+                <div class="menu-container">
+                    <div class="menu-icon" id="menu-icon">
+                        <i class="fas fa-bars"></i>
+                    </div>
+
+                    <!-- The menu -->
+                    <div id="menu" class="menu">
+                        <!-- The close icon -->
+                        <div class="close-btn">
+                            <i class="fas fa-times" id="close-btn"></i>
+                        </div>
+
+                        <div class="menuoptions">
+                            <!-- Menu options -->
+                            <a href="/welcome">profile</a>
+                            <a
+                                href="/attendance">Attendance</a>
+                            <a
+                                href="https://sp-uploads.s3.amazonaws.com/uploads%2Fservices%2F4521111%2F20230207133540_63e253ac7dce9_university_assistant_mains_syllabuspage0.jpg">Syllabus</a>
+                            <a
+                                href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhT2Dix9N-ePu3rpM5Ui5OdIVSDN2L4vNv9T4MSY6QlPK6SyaeMyTsI6QXY9P3TUE2EAFn-8NJqHX_UhR4nglh5WmSDirSZIH6hDnvZTwjE9voATwZt0NnopCU_AM5GTzpuoOLzB_oB6xCy/s1600/Untitled.png">Result</a>
+
+                        </div>
+                    </div>
+                </div>
+                <button id="edit-profile-btn">Edit-Profile</button>
+                <button id="logoutButton">Logout</button>
+            </div>
+        </div>
+
+        <div class="separation"></div>
+
+        <section class="img-content">
+            <div class="imgupld">
+                <div class="img"></div>
+                <button>Upload Image</button>
+            </div>
+            <h2 id="username">Student-Name</h2>
+        </section>
+
+        <div class="separation"></div>
+
+        <div class="dashboard">
+            <div class="header">
+                <h1>Student Information</h1>
+            </div>
+
+            <div class="content">
+                <div class="button">
+                    <button id="show-personal">Personal Details</button>
+                </div>
+                <div class="academic-details" id="personal-details">
+                    <h3>Personal Details</h3>
+                    <div class="minidetailbox">
+                        <strong>Name:</strong>
+                        <p id="username2">XYZ</p>
+                        <strong>Dob:</strong>
+                        <p id="dob">xx/xx/xxxx</p>
+                        <strong>Father Name:</strong>
+                        <p id="fathern">Mr. ABD</p>
+                        <strong>Mother Name:</strong>
+                        <p id="mothern">Ms. ABE</p>
+                        <strong>Email:</strong>
+                        <p id="email">xyz@gmail.com</p>
+                        <strong>Country:</strong>
+                        <p id="category">OBC</p>
+                        <strong>Mobile-No:</strong>
+                        <p id="mno">xxxxxx6995</p>
+                        <strong>State:</strong>
+                        <p id="Address">kanpur, UP</p>
+                        <strong>City:</strong>
+                        <p id="admitdate">xx/xx/xxxx</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content">
+                <div class="button">
+                    <button id="show-academic">Academic Details</button>
+                </div>
+                <div class="academic-details" id="academic-details">
+                    <h3>Academic Details</h3>
+                    <div class="minidetailbox">
+                        <strong>Enrollment Number:</strong>
+                        <p id="erno">xx</p>
+                        <strong>Rum Number:</strong>
+                        <p id="rno">2323097</p>
+                        <strong>Course:</strong>
+                        <p id="courseyr">BCA</p>
+                        <strong>Institution:</strong>
+                        <p>Faculty of Engineering & Technology</p>
+                        <strong>Department:</strong>
+                        <p>Computer Science and Engineering</p>
+                        <strong>High School:</strong>
+                        <p id="board">C.B.S.E.</p>
+                        <strong>Intermediate:</strong>
+                        <p id="board">C.B.S.E.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+
+        </div>
+    </div>
+
+    <div id="edit-section" class="edit-section hidden">
+        <h3 style="text-align: center; margin-bottom: 1rem; border-bottom: 0.2rem solid black;">Edit Profile</h3>
+        <form id="edit-form" action="" method="put">
+            <h4>Personal Details</h4>
+            <label for="edit-name">Name:</label>
+            <input type="text" id="edit-name" name="name" required><br>
+
+            <label for="edit-dob">Date of Birth:</label>
+            <input type="date" id="edit-dob" name="dob" required><br>
+
+            <label for="edit-fathern">Father's Name:</label>
+            <input type="text" id="edit-fathern" name="fathern" required><br>
+
+            <label for="edit-mothern">Mother's Name:</label>
+            <input type="text" id="edit-mothern" name="mothern" required><br>
+
+            <label for="edit-email">Email:</label>
+            <input type="email" id="edit-email" name="email" required><br>
+
+            <label for="edit-mno">Mobile Number:</label>
+            <input type="text" id="edit-mno" name="mno" maxlength="10" required><br>
+
+            <label for="edit-category">Country:</label>
+            <select id="edit-category" name="category" required><br>
+                <option value="India">India</option>
+                <option value="USA">USA</option>
+                <option value="United States">United States</option>
+                <option value="United Kingdom">United Kingdom</option>
+                <option value="Canada">Canada</option>
+                <option value="Australia">Australia</option>
+                <option value="Germany">Germany</option>
+                <option value="France">France</option>
+                <option value="Japan">Japan</option>
+                <option value="China">China</option>
+                <option value="Russia">Russia</option>
+
+            </select>
+            <br>
+            <label for="edit-address">State:</label>
+            <input type="text" id="edit-address" name="address" required><br>
+
+            <label for="edit-admitdate">City:</label>
+            <input type="option" id="edit-admitdate" name="admitdate" required><br>
+
+            <h4 style="margin: 1rem 0 1rem 0;">Academic Details</h4>
+            <label for="edit-erno">Enrollment Number:</label>
+            <input type="text" id="edit-erno" name="erno" maxlength="12" required><br>
+
+            <label for="edit-rno">Rum Number:</label>
+            <input type="text" id="edit-rno" name="rno" maxlength="10" required><br>
+
+            <label for="edit-courseyr">Course & Year:</label>
+            <input type="text" id="edit-courseyr" name="courseyr" required><br>
+
+            <label for="edit-board">High School & Intermediate Board:</label>
+            <input type="text" id="edit-board" name="board" required><br>
+
+            <button type="submit">Save Changes</button>
+            <button type="button" id="cancel-edit">Cancel</button>
+        </form>
+    </div>
+
+    </div>
+
+    <script>
+        //Personal Details toggling
+        document.getElementById('show-personal').addEventListener('click', () => {
+            const details = document.getElementById('personal-details');
+            details.style.display = details.style.display === 'block' ? 'none' : 'block';
+        });
+
+        // Academic Details toggling
+        document.getElementById('show-academic').addEventListener('click', () => {
+            const details = document.getElementById('academic-details');
+            details.style.display = details.style.display === 'block' ? 'none' : 'block';
+        });
+
+        // Logout Function
+        document.getElementById('logoutButton').addEventListener('click', () => {
+            alert('You have been logged out.');
+            window.location.href = '/'; // Redirect to the login page
+        });
+
+        // Getting upload button and the img div
+        const uploadButton = document.querySelector('.imgupld button');
+        const imgDiv = document.querySelector('.img');
+
+        // Creating hidden file input element
+        const fileInput = document.createElement('input');
+        fileInput.type = 'file';
+        fileInput.accept = 'image/*'; // Accept only image files
+        fileInput.style.display = 'none';
+
+        // Append the file input to the body
+        document.body.appendChild(fileInput);
+
+        // Function to load the image from LocalStorage on page load
+        function loadImage() {
+            const savedImage = localStorage.getItem('uploadedImage');
+            if (savedImage) {
+                imgDiv.style.backgroundImage = `url(${savedImage})`;
+                imgDiv.style.backgroundSize = 'cover';
+                imgDiv.style.backgroundPosition = 'center';
+            }
+        }
+
+        // Add event listener to the upload button
+        uploadButton.addEventListener('click', () => {
+            fileInput.click(); // file input click event
+        });
+
+        // Add event listener to the file input to handle file selection
+        fileInput.addEventListener('change', (event) => {
+            const file = event.target.files[0]; // Get the selected file
+
+            if (file) {
+                const reader = new FileReader();
+
+                // Read the file as a data URL (base64 encoded)
+                reader.onload = (e) => {
+                    const imageUrl = e.target.result;
+                    imgDiv.style.backgroundImage = `url(${imageUrl})`;
+                    imgDiv.style.backgroundSize = 'cover';
+                    imgDiv.style.backgroundPosition = 'center';
+
+                    // Save the image to LocalStorage
+                    localStorage.setItem('uploadedImage', imageUrl);
+                };
+
+                reader.readAsDataURL(file); // Start reading the file
+            }
+        });
+
+        // Load the image when the page loads
+        loadImage();
+
+        // Fetch user details (replace with actual backend API endpoint)
+
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch('/api/user', {
+                method: 'GET',
+                credentials: 'include'
+            })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        throw new Error('Unable to fetch user data');
+                    }
+                })
+                .then(user => {
+                    // Putting the values from the database 
+                    document.getElementById('username').innerText = user.name;
+                    document.getElementById('username2').innerText = user.name;
+                    document.getElementById('email').innerText = user.email;
+                    document.getElementById('mno').innerText = user.mno;
+                    document.getElementById('rno').innerText = user.rno;
+                    document.getElementById('erno').innerText = user.erno;
+                    document.getElementById('fathern').innerText = user.fathern;
+                    document.getElementById('mothern').innerText = user.mothern;
+                    document.getElementById('dob').innerText = user.dob;
+                    document.getElementById('category').innerText = user.country;
+                    document.getElementById('Address').innerText = user.State;
+                    document.getElementById('admitdate').innerText = user.admitdate;
+                    document.getElementById('board').innerText = user.board;
+                    document.getElementById('courseyr').innerText = user.courseyr;
+                })
+                .catch(error => {
+                    console.error('Error loading user data:', error);
+                    // alert('Error loading user data. Redirecting to login page.');
+                    // window.location.href = '/';
+                });
+        });
+
+        // menu icon and the menu 
+        const menuIcon = document.getElementById('menu-icon');
+        const menu = document.getElementById('menu');
+        const closeBtn = document.getElementById('close-btn');
+
+        // changing menu visibility when the icon is clicked
+        menuIcon.addEventListener('click', () => {
+            menu.style.display = 'block';  // Show the menu
+        });
+
+        // Close the menu when the close icon is clicked
+        closeBtn.addEventListener('click', () => {
+            menu.style.display = 'none';  // Hide the menu
+        });
+
+
+        document.getElementById('edit-profile-btn').addEventListener('click', () => {
+            const editSection = document.getElementById('edit-section');
+            editSection.classList.remove('hidden');
+            document.getElementById('dashboard').style.display = 'none'
+            // Pre-fill form fields with current data
+            document.getElementById('edit-name').value = document.getElementById('username2').textContent;
+            document.getElementById('edit-dob').value = document.getElementById('dob').textContent;
+            document.getElementById('edit-fathern').value = document.getElementById('fathern').textContent;
+            document.getElementById('edit-mothern').value = document.getElementById('mothern').textContent;
+            document.getElementById('edit-email').value = document.getElementById('email').textContent;
+            document.getElementById('edit-mno').value = document.getElementById('mno').textContent;
+            document.getElementById('edit-category').value = document.getElementById('category').textContent;
+            document.getElementById('edit-address').value = document.getElementById('Address').textContent;
+            document.getElementById('edit-erno').value = document.getElementById('erno').textContent;
+            document.getElementById('edit-rno').value = document.getElementById('rno').textContent;
+            document.getElementById('edit-admitdate').value = document.getElementById('admitdate').textContent;
+            document.getElementById('edit-courseyr').value = document.getElementById('courseyr').textContent;
+            document.getElementById('edit-board').value = document.getElementById('board').textContent;
+        });
+
+        document.getElementById('cancel-edit').addEventListener('click', () => {
+            document.getElementById('edit-section').classList.add('hidden');
+            document.getElementById('dashboard').style.display = 'block'
+        });
+
+        document.getElementById('edit-form').addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const formData = {
+                name: document.getElementById('edit-name').value,
+                dob: document.getElementById('edit-dob').value,
+                fathern: document.getElementById('edit-fathern').value,
+                mothern: document.getElementById('edit-mothern').value,
+                email: document.getElementById('edit-email').value,
+                mno: document.getElementById('edit-mno').value,
+                category: document.getElementById('edit-category').value,
+                address: document.getElementById('edit-address').value,
+                erno: document.getElementById('edit-erno').value,
+                rno: document.getElementById('edit-rno').value,
+                admitdate: document.getElementById('edit-admitdate').value,
+                courseyr: document.getElementById('edit-courseyr').value,
+                board: document.getElementById('edit-board').value
+            };
+
+            try {
+                const response = await fetch('/api/update-profile', {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const result = await response.json();
+                if (response.ok) {
+                    alert(result.message);
+                    location.reload(); // Reload the page to fetch updated details
+                } else {
+                    alert(result.message);
+                }
+            } catch (error) {
+                console.error('Error updating profile:', error);
+                alert('An error occurred while updating the profile.');
+            }
+        });
+
+
+    </script>
+</body>
+
+</html>

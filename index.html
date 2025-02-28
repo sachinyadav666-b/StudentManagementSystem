@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            color: white;
+            background-color: black;
+        }
+
+        .backimg {
+            padding: 4rem 0 4rem 0;
+            background-image: url(https://img.freepik.com/free-vector/hand-drawn-back-school-background_23-2149464866.jpg);
+            background-size: cover;
+            opacity: 0.8;
+
+        }
+
+        .main {
+
+            max-width: 400px;
+            /* height: 70px; */
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            justify-content: space-between;
+            /* align-items: center; */
+            flex-direction: column;
+            gap: 2rem;
+            border: 1px solid white;
+            padding: 3rem;
+            background-color: #000;
+            /* opacity: 0.8; */
+            border-radius: 10px;
+            box-shadow: 0px 10px 16px rgba(0, 0, 0, 0.5);
+        }
+
+        .main img {
+            color: red;
+            /* max-width: 300px; */
+            background-color: aliceblue;
+            padding: 0.5rem 1rem 0.5rem 1rem;
+            border-radius: 5px;
+            /* position: relative; */
+            /* left: 20%; */
+            /* margin-top: 1rem; */
+            /* opacity: 0.8; */
+        }
+
+        .main> :nth-child(2) {
+            position: relative;
+            left: 17%;
+            font-size: 1.8rem;
+        }
+
+        .main> :nth-child(4) {
+            text-align: center;
+            font-size: 1.2rem;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        form input {
+            height: 50px;
+            color: #050505;
+            padding-left: 0.8rem;
+            background-color: ;
+            opacity: 0.8;
+            border-radius: 5px;
+            border: 2px solid white;
+        }
+
+        form .btn {
+            height: 35px;
+            color: white;
+            font-size: 1rem;
+            padding-left: 0.8rem;
+            background-color: blue;
+            border-radius: 5px;
+            border: none;
+        }
+
+        form span {
+            text-align: center;
+        }
+
+        form> :nth-child(5) {
+            height: 35px;
+            color: #000;
+            background-color: gainsboro;
+        }
+
+        footer span {
+            padding: 20px;
+            margin: 0;
+            display: block;
+            text-align: center;
+        }
+
+        .footer {
+            color: white;
+            max-width: 70vw;
+            margin: auto;
+            padding: 34px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+        }
+
+        .footer-items {
+            display: flex;
+            flex-direction: column;
+            gap: 23px;
+
+        }
+
+        .footer-items a {
+            text-decoration: none;
+            color: white;
+
+        }
+
+        .seperation {
+            height: 3px;
+            background-color: gray;
+        }
+
+        .showpass {
+            /* border: 1px solid wheat; */
+            object-fit: ;
+            position: relative;
+            /* position: absolute; */
+            /* display: none; */
+        }
+
+        .showpass i {
+            color: #2d2929;
+            /* background-color: #000; */
+            border-radius: 50%;
+            position: absolute;
+            bottom: 35%;
+            left: 90%;
+            font-size: 1rem;
+            /* border: 1px solid black; */
+        }
+
+        .showpass input {
+            width: 96%;
+        }
+
+        .showpass .hide {
+            display: none;
+        }
+
+        /* General styles for the Forgot Password container */
+        #forgot-password-container {
+            /* width: 100%; */
+            max-width: 550px;
+            height: 70vh;
+            margin: 5rem auto 5rem auto;
+            padding: 2rem;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #forgot-password-container h2 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 1.5rem;
+            text-align: center;
+
+        }
+
+        #forgot-password-form label {
+            display: block;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            color: #555;
+        }
+
+        #forgot-password-form input {
+            /* width: 100%; */
+            padding: 0.3rem;
+            margin-bottom: 1rem;
+            border: 1px solid #0a0a0a;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        #forgot-password-form button {
+            padding: 0.75rem 1.5rem;
+            background-color: #1d3db0;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin: 0.5rem 0;
+            width: 100%;
+        }
+
+        #forgot-password-form button[type="button"] {
+            background-color: #f44336;
+        }
+
+        #forgot-password-form button:hover {
+            opacity: 0.9;
+        }
+
+        #cancel-forgot-password {
+            background-color: #f44336;
+            color: white;
+            border-radius: 5px;
+            margin-top: 0.5rem;
+            width: 100%;
+        }
+
+        #forgot-password-form input[type="email"]:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+
+        /* Mobile-specific Styles */
+        @media screen and (max-width: 700px) {
+            #forgot-password-container {
+                padding: 1.5rem;
+            }
+
+            #forgot-password-container h3 {
+                font-size: 1.2rem;
+            }
+
+            #forgot-password-form label {
+                font-size: 1rem;
+            }
+
+            #forgot-password-form input[type="email"] {
+                font-size: 0.9rem;
+            }
+
+            #forgot-password-form button {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="backimg">
+        <div class="main">
+            <span style="display: block; display: flex; justify-content: center;"><img
+                    src="https://user-images.githubusercontent.com/103960690/210166517-7f0f3ae2-62bf-4e07-9b7d-4f7c1f5099c8.png"
+                    alt="" width="100"></span>
+            <span>STUDENT SIGN IN</span>
+            <form action="/" method="post">
+                <input type="text" placeholder="Enter Rum-no" name="rno" required maxlength="10">
+
+                <div class="showpass">
+                    <input id="input" type="password" name="password" placeholder="password  " required>
+                    <div class="icon">
+                        <i class="fa-solid fa-eye"></i>
+                        <i class="fa-solid fa-eye-slash hide"></i>
+                    </div>
+                </div>
+                <input type="submit" class="btn" name="field" value="Sign-In">
+                <span>OR</span>
+                <button class="btn"><a href="/signup" style="text-decoration: none;">Sign-Up</a></button>
+            </form>
+            <span class="forgot-password-link"><a href="" style="color: aliceblue;">Forget-Password?</a></span>
+
+        </div>
+    </div>
+
+    <div id="forgot-password-container" class="forgot-password-container hidden">
+        <h2>Forgot Password</h2>
+        <form id="forgot-password-form" action="/reset-password" method="post">
+            <label for="email">Enter your Email:</label>
+            <input type="email" id="email" name="email" required placeholder="Email:" />
+            <label for="email">New-Password:</label>
+            <input type="password" id="new-password" name="password" required placeholder="Enter New-Password:" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$" title="Password must be at least 8 characters long and contain at least one letter,special character (@,$,%,!,*,&,%) and number.">
+            <button type="submit" id="reset-password">Reset Password</button>
+            <button type="button" id="cancel-forgot-password">Cancel</button>
+        </form>
+    </div>
+
+    <script>
+        const input = document.querySelector('#input')
+        const icon = document.querySelector('.icon')
+        const i1 = document.querySelectorAll(".icon i")
+        console.log(input)
+        let turn = 0
+
+
+
+        icon.addEventListener('click', () => {
+            if (turn == 0) {
+                i1[0].classList.add("hide")
+                i1[1].classList.remove("hide")
+                input.type = "text";
+                turn = 1
+            }
+            else {
+                i1[0].classList.remove("hide")
+                i1[1].classList.add("hide")
+                input.type = "password";
+                turn = 0
+            }
+        })
+
+ // Toggle Forgot Password Container
+ const forgotPasswordLink = document.querySelector('.forgot-password-link a');
+        const forgotPasswordContainer = document.getElementById('forgot-password-container');
+        const backImgContainer = document.querySelector('.backimg');
+        const cancelForgotPasswordButton = document.getElementById('cancel-forgot-password');
+
+        forgotPasswordLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            forgotPasswordContainer.classList.remove('hidden');
+            backImgContainer.classList.add('hidden');
+        });
+
+        cancelForgotPasswordButton.addEventListener('click', () => {
+            forgotPasswordContainer.classList.add('hidden');
+            backImgContainer.classList.remove('hidden');
+        });
+
+        // Reset Password Functionality
+        const resetPasswordButton = document.getElementById('reset-password');
+
+        resetPasswordButton.addEventListener('click', async () => {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('new-password').value;
+
+            if (!email || !password) {
+                alert("Please fill in all fields.");
+                return;
+            }
+
+            try {
+                const response = await fetch('/reset-password', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password }),
+                });
+
+                const result = await response.json();
+
+                alert(result.message);
+
+                if (response.ok) {
+                    // Hide forgot password form and show login form
+                    forgotPasswordContainer.classList.add('hidden');
+                    backImgContainer.classList.remove('hidden');
+                }
+            } catch (error) {
+                // alert("An error occurred. Please try again.");
+            }
+        });
+
+    </script>
+</body>
+
+</html>
